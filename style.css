@@ -1,0 +1,256 @@
+:root {
+  color-scheme: light;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  color: #23384b;
+  background: #f4f8fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --border: #d8e4ed;
+  --muted: #64788a;
+  --blue: #39749f;
+  --blue-dark: #2b5f85;
+  --blue-pale: #eaf4fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(180deg, #edf5fa 0, #f8fbfd 260px, #f4f8fb 100%);
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(280px, 350px) minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  align-items: start;
+  gap: 24px 32px;
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 48px 0 64px;
+}
+
+h1 {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  color: #1e3850;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+form,
+main > section {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgb(34 71 99 / 5%);
+}
+
+form {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+  padding: 28px;
+}
+
+form p {
+  margin: 0 0 22px;
+}
+
+form p label,
+legend {
+  display: block;
+  margin-bottom: 9px;
+  color: #344d62;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #cbd9e4;
+  border-radius: 5px;
+  background: #fff;
+  color: #23384b;
+  font: inherit;
+}
+
+input:focus-visible {
+  outline: 3px solid rgb(57 116 159 / 20%);
+  border-color: var(--blue);
+}
+
+fieldset {
+  display: flex;
+  gap: 24px;
+  margin: 0 0 22px;
+  padding: 0;
+  border: 0;
+}
+
+fieldset legend {
+  margin-bottom: 12px;
+}
+
+fieldset label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  color: #344d62;
+  font-size: 14px;
+}
+
+input[type="radio"] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--blue);
+}
+
+button {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--blue);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+}
+
+button:hover {
+  background: var(--blue-dark);
+}
+
+button:focus-visible {
+  outline: 3px solid rgb(57 116 159 / 30%);
+  outline-offset: 3px;
+}
+
+main > section {
+  padding: 24px 26px;
+}
+
+section[aria-labelledby="total-heading"] {
+  grid-column: 2;
+  grid-row: 2;
+  background: var(--blue-pale);
+}
+
+section[aria-labelledby="records-heading"] {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+h2 {
+  margin: 0 0 18px;
+  color: #2d4961;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+section[aria-labelledby="total-heading"] h2 {
+  margin-bottom: 8px;
+  color: #42647e;
+  font-size: 14px;
+}
+
+section[aria-labelledby="total-heading"] p {
+  margin: 0;
+}
+
+output {
+  color: #234e6e;
+  font-size: 28px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+section[aria-labelledby="records-heading"] > h2 {
+  margin-bottom: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #e4ebf0;
+  overflow-wrap: anywhere;
+}
+
+th {
+  background: #f3f7fa;
+  color: #536a7d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+td {
+  color: #344d62;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+td[colspan] {
+  padding: 28px 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 18px;
+    width: min(100% - 32px, 600px);
+    padding: 28px 0 40px;
+  }
+
+  h1,
+  form,
+  section[aria-labelledby="total-heading"],
+  section[aria-labelledby="records-heading"] {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  form {
+    padding: 22px;
+  }
+
+  main > section {
+    padding: 20px;
+  }
+
+  section[aria-labelledby="records-heading"] {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 540px;
+  }
+}
